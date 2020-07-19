@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void)
+{
+    float amount, principle, profit;
+    amount = get_float("목표금액을 입력하세요 : ");
+    principle = amount;
+    profit = amount * 0.012;
+    
+    printf("1년 만기시 받는 원금은 %.0f입니다.\n", amount);
+    printf("1년 만기시 받는 이자는 %.0f입니다.\n", profit);
+    printf("1년 만기시 받게 되는 총액은 %.0f입니다.\n", amount + profit);
+}
