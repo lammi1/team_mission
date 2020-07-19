@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void)
+{
+    int stock, order, left, price;
+    float profit;
+    stock = 5;
+    order = 3;
+    price = 10000;
+
+    left = stock - order;
+    profit = price + price * 0.1;
+
+    printf("주문건수 : %i 건\n기존 재고량 : %i개\n", order, stock);
+    printf("남은 재고량 : %i개\n매출액(부가세포함) : %.0f원\n", left, profit);
+
+}
