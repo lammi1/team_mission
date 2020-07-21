@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main(void)
+{
+
+// 기존 재고량, 주문 건수, 남은 재고량, 값을 정의했습니다.
+int stock, order, left, price;
+
+//매출액(부가세포함)을 정의했습니다.
+float total = 0;
+
+//기존 재고량은 수박 5개
+stock = 5;
+
+//주문건수는 수박 3개
+order = 3;
+
+//수박 한개당 10000원
+price = 10000;
+
+//남은 재고량은 기존 재고량 - 주문 건수
+
+left = stock - order;
+
+//부가세는 물품가격의 10%이므로
+
+//매출액(부가세포함)은 값 * 주문건수 * (1 + 0.1)
+total = price * order * 1.1; 
+
+//출력하기
+
+printf("주문건수 : %i 건\n", order);
+printf("기존 재고량 : %i 개\n", stock);
+printf("남은 재고량 : %i 개\n", left);
+printf("매출액(부가세포함) : %0.0f 원\n", total);
+}
