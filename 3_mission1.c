@@ -7,7 +7,7 @@ const int NUMBER_OF_GRADES = 9;
 const int SCORES[NUMBER_OF_GRADES] = {95, 90, 85, 80, 75, 70, 65, 60, 0};
 const char *GRADES[NUMBER_OF_GRADES] = {"A+", "A", "B+", "B", "C+", "C", "D+", "D", "F"};
 
-void printAnswers(char *who, const int target[], int length);
+void printScores(char *who, const int target[], int length);
 void printGrades(char *who, const char *target[], int length);
 char* calculateGrade(int totalScore, const int scores[], const char *grades[], int length);
 
@@ -16,9 +16,9 @@ int main(int argc, string argv[])
 	int score;
 
 	printf("학점 프로그램\n");
-	printf("종료를 원하시면 999 를 입력\n");
+	printf("종료를 원하시면 \"999\" 를 입력\n");
 	printf("[학점 테이블]\n");
-	printAnswers("점수", SCORES, NUMBER_OF_GRADES);
+	printScores("점수", SCORES, NUMBER_OF_GRADES);
 	printf("\n");
 	printGrades("학점", GRADES, NUMBER_OF_GRADES);
 	printf("\n");
@@ -47,7 +47,7 @@ int main(int argc, string argv[])
 }
 
 
-void printAnswers(char *who, const int target[], int length)
+void printScores(char *who, const int target[], int length)
 {
 	printf("%s : ", who);
 
@@ -65,4 +65,23 @@ void printGrades(char *who, const char *target[], int length)
 	{
 		printf("%s\t", target[i]);
 	}
+}
+
+
+char* calculateGrade(int totalScore, const int scores[], const char *grades[], int length)
+{
+	char *grade;
+	grade = NULL;
+
+	for (int i = 0; i < length; i++)
+	{
+		if (totalScore >= scores[i])
+		{
+			grade = malloc(sizeof(char) * strlen(grades[i]));
+			strcpy(grade, grades[i]);
+			break;
+		}
+	}
+
+	return grade;
 }
